@@ -33,34 +33,21 @@ class IndexController extends AbstractController
          $contact = new Contact();
 
          $form = $this->createFormBuilder($contact)
-                      ->add('prenom', TextType::class, [
-                          'attr' => [
-                              'placeholder' => "prenom",
-                              
-                          ]
-                      ])
-                      ->add('commune', TextType::class, [
-                          'attr' => [
-                              'placeholder' => "commune",
-                              
-                          ]
-                      ])
-                      ->add('email', EmailType::class, [
-                          'attr' => [
-                              'placeholder' => "Mail",
-                              
-                         ]
-                      ])
-                      ->add('message', TextareaType::class, [
-                          'attr' => [
-                              'placeholder' => "Message",
-                              
-                          ]
-                      ])
-                      ->add('save', SubmitType::class, [
-                          'label' => 'Enregistrer'
-                      ])
+                      ->add('prenom')
+                      ->add('commune')
+                      ->add('email')
+                      ->add('message')            
                       ->getForm();
+
+         $form->handleRequest($request);
+
+         if ($form->isSubmitted() && $form->isValid()) {
+             
+            $manager->persist($contact);
+            $manager->flush();
+
+            
+         }
 
         return $this->render('index/contact.html.twig', [
             'formContact' => $form->createView()
