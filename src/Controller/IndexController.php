@@ -27,6 +27,14 @@ class IndexController extends AbstractController
     }
 
     /**
+     * @Route("/vueContact", name="vueContact")
+     */
+    public function vueContact()
+    {
+        return $this->render('index/vueContact.html.twig');
+    }
+
+    /**
      * @Route("/contact", name="contact")
      */
     public function create(Request $request, EntityManagerInterface $manager){
@@ -46,7 +54,7 @@ class IndexController extends AbstractController
             $manager->persist($contact);
             $manager->flush();
 
-            
+            return $this->redirectToRoute('vueContact', ['id' => $contact->getId()]);
          }
 
         return $this->render('index/contact.html.twig', [
