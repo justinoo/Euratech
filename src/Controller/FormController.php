@@ -5,32 +5,33 @@ namespace App\Controller;
 use App\Form\FormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\Form;
+use App\Entity\Euratech;
 
 class FormController extends AbstractController
 {
     /**
-     * @Route("/form", name="formu_inscri")
+     * @Route("/inscription", name="formulaire_inscription")
      */
-    public function form(Request $request) : Response
+
+    public function form(Request $request)
     {
-        $formulaire = new Form();
-        $form = $this->createForm(FormType::class, $formulaire);
+        $product = new Euratech();
+        $form = $this->createForm(FormType::class, $product);
         $form->handleRequest($request);
-        dump($formulaire);
+        dump($product);
+
+
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($formulaire);
+            $entityManager->persist($product);
             $entityManager->flush();
 
-            return $this->render('form.html.twig', [
-                'form' => $form->createView(),
-            ]);
         }
-
+        return $this->render('Form/form.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
 
 }

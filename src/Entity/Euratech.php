@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\FormRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\EuratechRepository")
  */
-class Form
+class Euratech
 {
     /**
      * @ORM\Id()
@@ -42,7 +42,7 @@ class Form
     private $adresse1;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $adresse2;
 
@@ -57,14 +57,14 @@ class Form
     private $region;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $pays;
-
-    /**
      * @ORM\Column(type="integer")
      */
     private $cp;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $pays;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -146,7 +146,7 @@ class Form
         return $this->adresse2;
     }
 
-    public function setAdresse2(string $adresse2): self
+    public function setAdresse2(?string $adresse2): self
     {
         $this->adresse2 = $adresse2;
 
@@ -177,18 +177,6 @@ class Form
         return $this;
     }
 
-    public function getPays(): ?string
-    {
-        return $this->pays;
-    }
-
-    public function setPays(string $pays): self
-    {
-        $this->pays = $pays;
-
-        return $this;
-    }
-
     public function getCp(): ?int
     {
         return $this->cp;
@@ -197,6 +185,18 @@ class Form
     public function setCp(int $cp): self
     {
         $this->cp = $cp;
+
+        return $this;
+    }
+
+    public function getPays(): ?string
+    {
+        return $this->pays;
+    }
+
+    public function setPays(string $pays): self
+    {
+        $this->pays = $pays;
 
         return $this;
     }
