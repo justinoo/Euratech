@@ -1,15 +1,16 @@
 {% extends "base.html.twig" %}
 
-{% block body %}
+{%form_theme formContact 'bootstrap_4_layout.html.twig'%}
 
-<h1>Contactez-nous</h1>
+    {% block body %}
+
+    <h1>Contactez-nous</h1>
+
+    {{ form_start(formContact) }}
+
+    {{form_widget(formContact)}}
 
 
-<form action="" method="post">
-    <input type="text" name="prenom" placeholder="prenom">
-    <input type="text" name="commune" placeholder="commune">
-    <input type="email" name="email" placeholder="email">
-    <textarea name="content" placeholder="message" id="" cols="30" rows="10"></textarea>
-    <button type="submit">Envoyer</button> 
-</form>
+    {{ form_end(formContact)  }}
+
 {% endblock %}

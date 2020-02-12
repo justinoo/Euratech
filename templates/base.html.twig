@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+<<<<<<< HEAD
 
         <title>{% block title %}Euratechkid's{% endblock %}</title>
         {% block stylesheets %}
@@ -31,6 +32,21 @@
             <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"> </script>
         {% endblock %}
+=======
+        <title>{% block title %}Welcome!{% endblock %}
+        
+        </title>
+        {% block stylesheets %}
+        <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+        {% endblock %}
+    </head>
+    <body>
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
+
+        {% block javascripts %}{% endblock %}
+>>>>>>> Formulaire contact
 
     </body>
 </html>
