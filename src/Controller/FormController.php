@@ -31,7 +31,7 @@ class FormController extends AbstractController
             $entityManager->persist($product);
             $entityManager->flush();
         }
-        return $this->RedirectToroute('Form/form.html.twig', [
+        return $this->render('Form/form.html.twig', [
             'form' => $form->createView(),
         ]);
     }

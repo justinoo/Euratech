@@ -13,8 +13,8 @@ class NameController extends AbstractController
      */
     public function enfants($nbrkid)
     {
-        $nbrkid = $this->getDoctrine()->getManager()->findOne
-        return $this->render('name/index.html.twig', [
+        $nbrkid = $this->getDoctrine()->getManager()->getRepository()->findBy($nbrkid);
+        return $this->redirectToRoute('name/index.html.twig', [
             'enfants' => $nbrkid,
         ]);
     }
