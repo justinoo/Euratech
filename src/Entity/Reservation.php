@@ -3,11 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\EuratechRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ReservationRepository")
  */
-class Euratech
+class Reservation
 {
     /**
      * @ORM\Id()
@@ -52,11 +53,6 @@ class Euratech
     private $ville;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $region;
-
-    /**
      * @ORM\Column(type="integer")
      */
     private $cp;
@@ -67,12 +63,19 @@ class Euratech
     private $pays;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="integer")
+     */
+    private $enfants;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Blank
      */
     private $kidname;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
+     * @Assert\Blank
      */
     private $accompagnants;
 
@@ -165,18 +168,6 @@ class Euratech
         return $this;
     }
 
-    public function getRegion(): ?string
-    {
-        return $this->region;
-    }
-
-    public function setRegion(string $region): self
-    {
-        $this->region = $region;
-
-        return $this;
-    }
-
     public function getCp(): ?int
     {
         return $this->cp;
@@ -197,6 +188,18 @@ class Euratech
     public function setPays(string $pays): self
     {
         $this->pays = $pays;
+
+        return $this;
+    }
+
+    public function getEnfants(): ?int
+    {
+        return $this->enfants;
+    }
+
+    public function setEnfants(int $enfants): self
+    {
+        $this->enfants = $enfants;
 
         return $this;
     }

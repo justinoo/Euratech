@@ -2,11 +2,12 @@
 
 namespace App\Form;
 
-use App\Entity\Euratech;
+use App\Entity\Reservation;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\RadioType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -15,6 +16,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class FormType extends AbstractType
 {
+
+    public $enfants;
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
@@ -45,34 +48,42 @@ class FormType extends AbstractType
                 "label" => "Ville :"
 
             ])
-            ->add('region', CountryType::class)
+            
             ->add('cp', TextType::class, [
                 'label' => "Code Postal : "
             ])
             ->add('pays', CountryType::class, [
                 'label' => " Pays : "
             ])
-            ->add('kidname', TextType::class, [
-                'label' => "Prénom de l'enfant : ",
-            ])
-            ->add('accompagnants', ChoiceType::class,
-                [
-                    'choices'=>[
-                        "Oui" => true,
-                        "Non" => false
-                    ],
+            ->add('enfants',ChoiceType::class, [
+                'choices'=>[
+                    "12" => 12,
+                    "11" => 11,
+                    "10" => 10,
+                    "9" => 9,
+                    "8" => 8,
+                    "7" => 7,
+                    "6" => 6,
+                    "5" => 5,
+                    "4" => 4,
+                    "3" => 3,
+                    "2" => 2,
+                    "1" => 1
+
+                ],
 
 
-                'label' => "Accompagnateurs : "
-            ])
+            'label' => "Nombre d'enfants à  inscrire : "
+        ])
+        
+            
             ->getForm();
-
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Euratech::class,
+            'data_class' => Reservation::class,
         ]);
     }
 }
