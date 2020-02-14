@@ -20,8 +20,13 @@ class FormController extends AbstractController
         $product = new Reservation();
         $form = $this->createForm(FormType::class, $product);
 
+
+        
         $form->handleRequest($request);
         dump($product);
+
+
+
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
