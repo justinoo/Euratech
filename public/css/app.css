@@ -1,3 +1,392 @@
+/* Général */
+@import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';
+
+* {
+  font-family:  Helvetica;
+}
+
+/* fin général */
+
+/* navbar début */
+
+.navbar-header {
+   text-align: center;
+}
+
+.navbar-brand {
+    height: 100px;
+    padding: 15px 15px;
+    line-height: 20px;
+}
+
+nav.main-navigation  {
+    background-color: #E3E3E3;
+    right: 0;
+    left: 0;
+    height: 157px;
+	  z-index: -1;
+}
+
+nav.main-navigation ul.nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    text-align: center;
+}
+
+.nav-list li.nav-list-item {
+    display: inline-block;
+    line-height: 40px;
+    margin: 0px 5px 0px 5px;
+}
+
+a.nav-link {
+    text-decoration: none;
+    font-size: 18px;
+    font-family: sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+	  color: black;
+   
+}
+
+a.nav-link:hover {
+    color: #e1a917;
+}
+
+@keyframes FadeIn {
+    0% {
+        opacity: 0;
+        transition-duration: 0.8s;
+        transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        transform: translateY(0);
+        pointer-events: auto;
+        transition: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+
+.nav-list li , #log {
+    animation: FadeIn 1s cubic-bezier(0.65, 0.05, 0.36, 1);
+    animation-fill-mode: both;
+}
+
+.nav-list li:nth-child(1) {
+    animation-delay: .3s;
+}
+
+.nav-list li:nth-child(2) {
+    animation-delay: .6s;
+}
+
+.nav-list li:nth-child(3) {
+    animation-delay: .9s;
+}
+
+.nav-list li:nth-child(4) {
+    animation-delay: 1.2s;
+}
+
+.nav-list li:nth-child(5) {
+    animation-delay: 1.5s;
+}
+
+/* Animation */
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 40px, 0)
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1
+    }
+}
+
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.animatedFadeInUp {
+    opacity: 0
+}
+
+.fadeInUp {
+    opacity: 0;
+    animation-name: fadeInUp;
+}
+
+/* navbar fin */
+
+/* carousel */
+
+.carousel-item {
+  height: 50vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  background-size: cover;
+}
+
+/* Fin carousel */
+
+
+/* début card */
+
+#presentation {
+  font-size: 1.5rem;
+}
+
+/* LES BOXES */
+@media screen and (max-width: 1024px)
+{
+	#crea, #ludique
+	{
+		padding-top: 80px;
+	}
+}
+button:focus {
+  outline: none;
+	box-shadow: none;
+}
+a,
+a:hover {
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.3s ease-in-out;
+}
+img {
+  display: inline-block;
+  max-width: 100%;
+}
+
+.box{
+	margin:2rem 0 8rem;
+}
+.heading{
+	text-align: center;
+	position: relative;
+	font-size: 3.3rem;
+	font-weight: bold;
+	margin: 3rem 0;
+	
+}
+.box figure {
+  transition: 1s all;
+  position: relative;
+}
+
+.box figure img {
+  height: 223px;
+	object-fit: cover;
+  transition: .3s all;
+	backface-visibility: hidden;
+}
+
+.box figure figcaption {
+  position: absolute;
+  bottom: -80px;
+  left: 8%;
+  right: 8%;
+  background: #fff;
+  color: #000;
+  padding: 20px 15px;
+	box-shadow: 0 5px 10px #00000033;
+  transition: .5s all;
+}
+
+.box figure figcaption::after {
+  left: 50%;
+	transform: translateX(-50%);
+  bottom: 0;
+  height: 2px;
+  background: #977938;
+  content: '';
+  width: 0;
+  position: absolute;
+  transition: .5s all;
+}
+
+.box figure figcaption h5 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  transition: .3s all;
+}
+
+.box figure figcaption h3 {
+  font-size: 2.1rem;
+  font-weight: 500;
+}
+
+.box figure:hover {
+	transform: translateY(5px);
+}
+
+.box figure:hover h5 {
+  color: #977938;
+}
+
+.box figure:hover img {
+	box-shadow: 0px 0px 6px #0000004f, -10px -10px 1px #977938;
+}
+
+.box2 figure:hover figcaption {
+  transform: translateY(-7px);
+	box-shadow: 0 10px 10px #0000004f;
+}
+
+.box figure:hover figcaption::after {
+  width: 100%;
+}
+.box h3 {
+  font-size: 3rem;
+  font-family: inherit;
+  font-weight: bold;
+  line-height: 4rem;
+}
+
+.box p {
+  font-size: 1rem;
+  font-family: "helveticaregular";
+  
+}
+
+/* CARDS */
+.card {
+	width:300px;
+	min-height:400px;
+	background:#fff;
+	box-shadow:0 20px 50px rgba(0,0,0,.1);
+	border-radius:10px;
+	transition:0.5s;
+}
+.card:hover {
+	box-shadow:0 30px 70px rgba(0,0,0,.2);
+}
+.card .box {
+	transform:translateY(-50%);
+	text-align:center;
+	padding:20px;
+	box-sizing:border-box;
+	width:100%;
+}
+.card .box .img {
+	width:120px;
+	height:120px;
+	margin:0 auto;
+	border-radius:50%;
+	overflow:hidden;
+}
+.card .box .img img {
+	width:100%;
+	height:100%;
+}
+.card .box p {
+	color:#262626;
+}
+.card .box span {
+	display:inline-flex;
+}
+#vide {
+  height: 200px;
+}
+
+/* Fin card */
+
+/* début programme */
+h1
+{
+  margin:40px 0 60px 0;
+  font-weight:300;
+}
+
+.our-team-main
+{
+  width:100%;
+  height:auto;
+  border-bottom:5px #323233 solid;
+  background:#fff;
+  text-align:center;
+  border-radius:10px;
+  overflow:hidden;
+  position:relative;
+  transition:0.5s;
+  margin-bottom:28px;
+}
+
+
+.our-team-main img
+{
+  
+  margin-bottom:20px;
+  width: 100%;
+  height: 100%;
+}
+
+.our-team-main h3
+{
+  font-size:20px;
+  font-weight:700;
+}
+
+.our-team-main p
+{
+  margin-bottom:0;
+}
+
+.team-back
+{
+  width:100%;
+  height:auto;
+  position:absolute;
+  top:0;
+  left:0;
+  padding:5px 15px 0 15px;
+  text-align:center;
+  background:#fff;
+  
+}
+
+.team-front
+{
+  width:100%;
+  height:auto;
+  position:relative;
+  z-index:10;
+  background:#fff;
+  padding:15px;
+  bottom:0px;
+  transition: all 0.5s ease;
+}
+
+.our-team-main:hover .team-front
+{
+  bottom:-500px;
+  transition: all 0.5s ease;
+}
+
+.our-team-main:hover
+{
+  border-color:#804c7b;
+  transition:0.5s;
+}
+
+#pulse {
+box-shadow: 0 0 0 0 rgba(53, 184, 236, 0.7);
+border-radius: 50%;
+animation: pulse 1.25s infinite cubic-bezier(0.10, 0, 0, 1);
+}
+@keyframes pulse {to {box-shadow: 0 0 0 10px rgba(53, 184, 236, 0);}}
+/* Fin programme */
+
+/* Footer début */
 .full {
     width: 100%;	
 }
@@ -24,8 +413,8 @@
     padding: 0px 20px;
 }
 
-footer #lille {
-    max-height: 50%;
+footer a #lille  {
+    max-height: 10%;
     margin-top: 45px;
 }
 
@@ -95,7 +484,7 @@ footer #lille {
 	transition: all 0.5s ease 0s;
 }
 .social li:hover {
-	transform: scale(1.15) rotate(360deg);
+	  transform: scale(1.15) rotate(360deg);
     transform: scale(1.1) rotate(360deg);
 }
 .social li a {
@@ -126,4 +515,7 @@ footer #lille {
 
 #mentions a {
 	color: gray;
-	font-size: 12px;
+    font-size: 12px;
+}
+
+/* footer fin */

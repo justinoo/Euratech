@@ -1,16 +1,13 @@
-{% extends "base.html.twig" %}
-
+{% block footer %}
 <footer>
     <div class="footer" id="footer">
         <div class="container">
             <div class="row">
-                                
                 <div class="col-lg-3  col-md-3 col-sm-4 col-xs-6">
-                    <img src="css/images/Euratech.png"/>
+                    <a href="https://www.euratechnologies.com/" target="blank"> <img src="css/images/Euratech.png"/> </a>
                 </div>
-                
                 <div class="col-lg-3  col-md-3 col-sm-4 col-xs-6">
-                    <img src="css/images/logoLille.jpg" id="lille"/>
+                    <a href="https://www.lille.fr/" target="blank"> <img src="css/images/logoLille.jpg" id="lille"/> </a>
                 </div>
                 <div class="col-lg-3  col-md-3 col-sm-4 col-xs-6">
                     <h3> Adresse </h3>
@@ -33,7 +30,6 @@
                     <ul class="social">
                         <li> <a href="https://www.facebook.com/euratechkids" target="blank"> <i class="fab fa-facebook"></i></a> </li>
                         <li> <a href="https://twitter.com/euratechkids" target="blank"> <i class="fab fa-twitter">   </i> </a> </li>
-                        <li> <a href="https://www.instagram.com/euratechkids/" target="blank"> <i class="fab fa-instagram">   </i> </a> </li>
                         <li> <a href="https://www.youtube.com/channel/UC_objOsEpjqUUmWu6NUhO3A" target="blank"> <i class="fab fa-youtube">   </i></a> </li>
                     </ul>
                 </div>
@@ -50,11 +46,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center" id="mentions">
-                    <p><a href="#">Mentions Légales</a> <br>
-                        <a href="#">Conditions Générales d'Utilisations</a>
+                    <p><a href="/mentions-legales">Mentions Légales</a> <br>
+                        <a href="/conditions-generale">Conditions Générales d'Utilisations</a>
                     </p>
                 </div>
             </div>
         </div>
     </div>
 </footer>
+{% endblock %}
