@@ -20,9 +20,11 @@ class FormController extends AbstractController
         $product = new Reservation();
         $form = $this->createForm(FormType::class, $product);
 
+
         
         $form->handleRequest($request);
         dump($product);
+
 
 
 
