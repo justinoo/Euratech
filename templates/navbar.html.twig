@@ -6,20 +6,35 @@
         <div class="container">
             <ul class="nav-list">
                 <li class="nav-list-item">
-                    <a href="/" class="nav-link">Accueil</a>
+                    <a href="{{ path('home_page') }}" class="nav-link">Accueil</a>
                 </li>
                 <li class="nav-list-item">
-                    <a href="/ateliers" class="nav-link">Ateliers</a>
+                    <a href="{{ path('ateliers') }}" class="nav-link">Ateliers</a>
                 </li>
                 <li class="nav-list-item">
-                    <a href="/ecoles" class="nav-link">Écoles</a>
+                    <a href="{{ path('ecoles') }}" class="nav-link">Écoles</a>
+                </li>
+                {% if not app.user %}
+                <li class="nav-list-item">
+                    <a href="{{ path('security_login') }}" 
+                        class="nav-link" 
+                        id="log" 
+                        alt="se connecter">Connexion</a>
+                <li class="nav-list-item">
+                    <a href="{{ path('security_registration') }}" class="nav-link" id="log"> S'inscrire</a>
+                </li>
+                {% else %}   
                 </li>
                 <li class="nav-list-item">
-                    <a href="#" class="nav-link" id="log" alt="se connecter"> <i class="fas fa-sign-in-alt"></i></a>
+                    <a href="{{ path('security_logout') }}" 
+                        class="nav-link" 
+                        id="log" 
+                        alt="se connecter">Déconnexion</a>
                 </li>
                 <li class="nav-list-item">
-                    <a href="#"  class="nav-link" id="log"> S'inscrire</a>
+                    <a href="{{ path('security_registration') }}" class="nav-link" id="log"> S'inscrire</a>
                 </li>
+                {% endif %}
             </ul>
         </div>
     </nav>
