@@ -30,12 +30,26 @@
 	<div class="container">
 	    <p class="pt-3 text-center"><span>Durée :</span> 1 journée avec possibilité de déjeuner sur place (prévoir un pique-nique). 1/2 journée matin ou après-midi.</p> 
 	</div>
-	<div class="container-fluid">
-	    <div class="row">
+	<div class="container">
 	    	<div class="mx-auto pb-4">
-	        	<button class="btn btn-info mt-5" href="">Demander un devis</button> 
+	        	<button class="btn btn-info mt-5" data-toggle="collapse" data-target="#formschool">Demander un devis</button>
+                 <div id="formschool" class="collapse container-fluid">
+                 {{ form_start(form) }}
+
+                    {{ form_row(form.nomref, {'label': 'Nom du référant','attr' : {'placeholder': 'Votre nom'}}) }}
+                    {{ form_row(form.prenomref, {'label': 'Prénom du référant','attr' : {'placeholder': 'Votre prénom'}}) }}
+                    {{ form_row(form.email, {'label': 'Email','attr' : {'placeholder': 'email@email.com'}}) }}
+                    {{ form_row(form.schoolname, {'label': 'Nom de l\'établissent','attr' : {'placeholder': 'Nom de l\'établissement'}}) }}
+                    {{ form_row(form.ville, {'label': 'Ville','attr' : {'placeholder': 'Ville de l\'établissement'}}) }}
+                    {{ form_row(form.nbrestudent, {'label': 'Nombre d\'élèves','attr' : {'placeholder': 'Nombre d\'élèves'}}) }}
+                    {{ form_row(form.message, {'label': 'Message','attr' : {'placeholder': 'Votre message'}}) }}
+                    
+                    <button type="submit" class="btn btn-info">Envoyer</button>
+                    {{ form_end(form) }}
+                 </div>
 	   		</div> 
-	   	</div>
 	</div>
+
+
 
 {% endblock %}

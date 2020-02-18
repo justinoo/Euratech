@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{%form_theme formContact 'bootstrap_4_layout.html.twig'%}
+
+    {% block body %}
+
+    <h1>Contactez-nous</h1>
+
+    {{ form_start(formContact) }}
+
+    {{ form_row(formContact.prenom, {'attr': {'placeholder': "prenom"}} ) }}
+    {{ form_row(formContact.commune, {'attr': {'placeholder': "commune"}}) }}
+    {{ form_row(formContact.email, {'attr': {'placeholder': "email"}} ) }}
+    {{ form_row(formContact.message, {'attr': {'placeholder': "message"}}) }}
+
+    <button type="sumbit" class=""btn btn-success>Envoyer</button>
+
+    {{form_widget(formContact)}}
+
+
+    {{ form_end(formContact)  }}
+
+{% endblock %}
