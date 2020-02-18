@@ -17,38 +17,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use function PHPSTORM_META\type;
 
-class IndexController extends AbstractController
+class ContactController extends AbstractController
 {
-    /**
-     * @Route("/index", name="index")
-     */
-    public function index()
-    {
-        return $this->render('index/index.html.twig', [
-            'controller_name' => 'IndexController',
-        ]);
-    }
 
     /**
-     * @Route("/vueContact", name="vueContact")
-     */
-    public function vueContact()
-    {
-        return $this->render('index/vueContact.html.twig');
-    }
-
-    /**
-     * @Route("/contact", name="contact")
+     * @Route("/", name="contact")
      */
     public function create(Request $request, EntityManagerInterface $manager){
          $contact = new Contact();
-
-        //  $form = $this->createFormBuilder($contact)
-        //               ->add('prenom')
-        //               ->add('commune')
-        //               ->add('email')
-        //               ->add('message')            
-        //               ->getForm();
 
         $form = $this->createForm(ContactType::class, $contact);
 
@@ -60,12 +36,11 @@ class IndexController extends AbstractController
 
             $manager->persist($contact);
             $manager->flush();
-
-            return $this->redirectToRoute('vueContact', ['id' => $contact->getId()]);
          }
 
-        return $this->render('index/contact.html.twig', [
-            'formContact' => $form->createView()
+        return $this->render('homepage.html.twig', [
+            'controller_name' => 'ContactController',
+            'form' => $form->createView()
         ]);
     }
 }
