@@ -15,4 +15,12 @@ easy_admin:
                     - {property: "description", type: "text_editor"}
                     - "date"
 
+    site_name: '<img src="/css/images/logokids.png" />'
+    
+    design:
+        assets:
+            css:              
+                - 'css/admin.css'
+
+        brand_color: '#346986'
 

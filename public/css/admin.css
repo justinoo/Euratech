@@ -7,4 +7,16 @@
     --font-size-base: 13px;
     /* remove all border radius to make corners straight */
     --border-radius: 0px;
+
+}
+img {
+   width: 15%;
+}
+
+.user-name {
+    color: black;
+}
+
+.content-header {
+    color: #346986;
 }
