@@ -4,45 +4,23 @@
 		<div class="container-fluid px-5 py-5">
 		<h2 class="text-center display-4">Venez découvrir nos ateliers</h2>
 			<div class="row">
+			{% for atelier in ateliers %}
 				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pt-3 pb-3">
 					<div class="card w-100 h-100">
-					  <img src="css/images/presentation/atelier.jpg" class="card-img-top" alt="...">
+					  <img class="img-fluid" src="{{ asset('css/images' ~ atelier.image) }}" />
 					  <div class="card-body">
-					    <h5 class="card-title text-center">Titre de l'atelier</h5>
+					    <h5 class="card-title text-center">{{ atelier.titre }} </h5>
 					    <p class="card-text text-secondary text-justify">
-						On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L'avantage du Lorem Ipsum sur un texte générique comme 'Du texte. Du texte. Du texte.' est qu'il possède une distribution de lettres plus ou moins normale, et en tout cas comparable avec celle du français standard. De nombreuses suites logicielles de mise en page ou éditeurs de sites Web ont fait du Lorem Ipsum leur faux texte par défaut, et une recherche pour 'Lorem Ipsum' vous conduira vers de nombreux sites qui n'en sont encore qu'à leur phase de construction. Plusieurs versions sont apparues avec le temps, parfois par accident, souvent intentionnellement (histoire d'y rajouter de petits clins d'oeil, voire des phrases embarassantes).
+							{{ atelier.description }}
 						</p>
-						<p class="text-center bg-light">DATE : 22/22/2222</p><br/>
-					    <a href="{{ path('formulaire_inscription')}}" class="btn btn-info mt-2 w-100">Réservez ce cours</a>
+
+						<p class="text-center bg-light"></p><br/>
+					    <a href="{{ path('formulaire_inscription') }}" class="btn btn-info mt-2 w-100">Réservez ce cours</a>
+
 					  </div>
 					</div>
 				</div>
-				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pt-3 pb-3">
-					<div class="card w-100 h-100">
-					  <img src="css/images/presentation/crea.jpg" class="card-img-top" alt="...">
-					  <div class="card-body">
-					    <h5 class="card-title text-center">Titre de l'atelier</h5>
-					    <p class="card-text text-white text-justify">
-						On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L'avantage du Lorem Ipsum sur un texte générique comme 'Du texte. Du texte. Du texte.' est qu'il possède une distribution de lettres plus ou moins normale, et en tout cas comparable avec celle du français standard. De nombreuses suites logicielles de mise en page ou éditeurs de sites Web ont fait du Lorem Ipsum leur faux texte par défaut, et une recherche pour 'Lorem Ipsum' vous conduira vers de nombreux sites qui n'en sont encore qu'à leur phase de construction. Plusieurs versions sont apparues avec le temps, parfois par accident, souvent intentionnellement (histoire d'y rajouter de petits clins d'oeil, voire des phrases embarassantes).
-						</p>
-						<p class="text-center bg-light">DATE : 22/22/2222</p><br/>
-					    <a href="{{path('formulaire_inscription')}}" class="btn btn-info mt-2 w-100">Réservez ce cours</a>
-					  </div>
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pt-3 pb-3">
-					<div class="card w-100 h-100">
-					  <img src="css/images/presentation/ludique.jpg" class="card-img-top" alt="...">
-					  <div class="card-body">
-					    <h5 class="card-title text-center">Titre de l'atelier</h5>
-					    <p class="card-text text-white text-justify">
-						On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L'avantage du Lorem Ipsum sur un texte générique comme 'Du texte. Du texte. Du texte.' est qu'il possède une distribution de lettres plus ou moins normale, et en tout cas comparable avec celle du français standard. De nombreuses suites logicielles de mise en page ou éditeurs de sites Web ont fait du Lorem Ipsum leur faux texte par défaut, et une recherche pour 'Lorem Ipsum' vous conduira vers de nombreux sites qui n'en sont encore qu'à leur phase de construction. Plusieurs versions sont apparues avec le temps, parfois par accident, souvent intentionnellement (histoire d'y rajouter de petits clins d'oeil, voire des phrases embarassantes).
-						</p>
-						<p class="text-center bg-light">DATE : 22/22/2222</p><br/>
-					    <a href="{{path('formulaire_inscription')}}" class="btn btn-info mt-2 w-100">Réservez ce cours</a>
-					  </div>
-					</div>
-				</div>
+			{% endfor %}
 			</div>
 		</div>
 {% endblock %}
