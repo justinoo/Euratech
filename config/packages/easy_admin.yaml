@@ -12,6 +12,6 @@ easy_admin:
                 fields:
                     - {property: "image", type: "file"}
                     - "titre"
-                    - "description"
+                    - {property: "description", type: "text_editor"}
                     - "date"
 
