@@ -32,7 +32,7 @@ class ContactController extends AbstractController
 
          if ($form->isSubmitted() && $form->isValid()) {
 
-            $this->addFlash('notice', 'Your changes were saved!');
+            dump($contact);
 
             $manager->persist($contact);
             $manager->flush();
