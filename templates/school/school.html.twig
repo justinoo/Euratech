@@ -18,7 +18,14 @@
 				<h5 class="card-title text-center">Écoles maternelle</h5>
 				<p class="card-text text-justify ">Les technologies utilisées et adaptées pour les plus jeunes permettent aux élèves de découvrir avec et/ou sans tablette les notions du code informatique. Sans la tablette nous utilisons des petits robots éducatifs : Thymio® le robot déjà programmé, BeeBot® l'abeille programmable, Jack la souris qui code et Cubetto®, le robot éducatif en bois.  Avec la Tablette, nous avons une diversité d'applications afin que les élèves découvrent les notions du code informatique tout en s'amusant. Exemple : Scratch® JR / codeKarts® /...</p>
 			</div>
-		</div>	
+		</div>
+		<div class="card">
+			<img class="card-img-top" src="css/images/ecoles/ecoles2.jpg" alt="image école">
+			<div class="card-body">
+				<h5 class="card-title text-center">Écoles primaire</h5>
+				<p class="card-text text-justify ">A travers différents ateliers utilisant une technologie adaptée, EuraTech'Kids fait découvrir à vos élèves les notions du code informatique : atelier robotique, construction et programmation de robot, création de petits jeux vidéo avec Scratch®, découverte de la 3D avec impression 3D et sensibilisation à l'électronique.</p>
+			</div>
+		</div>		
 
 	</div>
 	<div class="container">
@@ -37,7 +44,8 @@
                     {{ form_row(form.schoolname, {'label': 'Nom de l\'établissement','attr' : {'placeholder': 'Nom de l\'établissement'}}) }}
                     {{ form_row(form.ville, {'label': 'Ville','attr' : {'placeholder': 'Ville de l\'établissement'}}) }}
                     {{ form_row(form.nbrestudent, {'label': 'Nombre d\'élèves','attr' : {'placeholder': 'Nombre d\'élèves'}}) }}
-                    {{ form_row(form.message, {'label': 'Message','attr' : {'placeholder': 'Votre message'}}) }}
+					{{ form_row(form.classe, {'label': 'Classe','attr' : {'placeholder': 'Maternelle, CP, CE1...'}}) }}
+					{{ form_row(form.message, {'label': 'Message','attr' : {'placeholder': 'Votre message'}}) }}
 
                     
                     <button type="submit" class="btn btn-info">Envoyer</button>
