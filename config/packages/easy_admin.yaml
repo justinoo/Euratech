@@ -1,0 +1,17 @@
+easy_admin:
+    entities:
+        Contact:
+            class: App\Entity\Contact 
+        NewsLetters: 
+            class: App\Entity\NewsLetters 
+        Reservations:
+            class: App\Entity\ReservationAtelier   
+        CreationAtelier:
+            class: App\Entity\CreateAtelier
+            form:
+                fields:
+                    - {property: "image", type: "file"}
+                    - "titre"
+                    - "description"
+                    - "date"
+
