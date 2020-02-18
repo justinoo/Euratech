@@ -14,6 +14,8 @@ easy_admin:
                     - "titre"
                     - {property: "description", type: "text_editor"}
                     - "date"
+        Ecoles:
+            class: App\Entity\School
 
     site_name: '<img src="/css/images/logokids.png" />'
     
