@@ -1,16 +1,18 @@
 easy_admin:
+    entities:
+        Contact:
+            class: App\Entity\Contact 
+        NewsLetters: 
+            class: App\Entity\NewsLetters 
+        Reservations:
+            class: App\Entity\ReservationAtelier   
+        CreationAtelier:
+            class: App\Entity\CreateAtelier
+            form:
+                fields:
+                    - {property: "image", type: "file"}
+                    - "titre"
+                    - "description"
+                    - "date"
 
-    site_name: '<img src="/css/images/logokids.png"/>'
-    entities:      
-         - App\Entity\Contact
-         - App\Entity\NewsLetters 
-         - App\Entity\ReservationAtelier
-    design:
-        
-        menu: 
-          - { entity: 'Contact', icon: ''}
-          - { entity: 'NewsLetters', icon: ''}
-          - { entity: 'ReservationAtelier', icon: ''}
-
-        
 
