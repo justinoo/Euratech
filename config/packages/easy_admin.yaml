@@ -10,7 +10,7 @@ easy_admin:
             class: App\Entity\CreateAtelier
             form:
                 fields:
-                    - {property: "image", type: "file"}
+                    - {property: "image", type: "image", base_path: '/'}
                     - "titre"
                     - {property: "description", type: "text_editor"}
                     - "date"
@@ -25,4 +25,3 @@ easy_admin:
                 - 'css/admin.css'
 
         brand_color: '#346986'
-
