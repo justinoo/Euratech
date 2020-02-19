@@ -1,55 +1,59 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{% endblock %}
+{% block title %}Ecoles{% endblock %}
 
 {% block body %}
-    	<div class="container">
-		<h5 class="text-center display-4 pb-5 pt-3">PROGRAMMES ÉCOLES</h5>
-	</div>
-	<div class="container">
-		<h5 class=" text-justify pb-5">De nos jours, les enfants sont confrontés dès leur plus jeune âge à des technologies complexes qu'ils utilisent de façon plus ou moins instinctive. Alors venez faire découvrir à votre classe les notions de bases de la programmation informatique, afin qu'ils comprennent mieux le fonctionnement des outils à leur disposition au quotidien et leur donner des outils pour mieux les manipuler.</h5>
-	</div>
-	<div class="container">
-	    <div class="card-deck">
-	    	<div class="card">
-				<img class="card-img-top" src="css/images/ecoles/ecole1.jpg" alt="image école">
-				<div class="card-body">
-					<h5 class="card-title text-center">Écoles maternelle</h5>
-					<p class="card-text text-justify ">Les technologies utilisées et adaptées pour les plus jeunes permettent aux élèves de découvrir avec et/ou sans tablette les notions du code informatique. Sans la tablette nous utilisons des petits robots éducatifs : Thymio® le robot déjà programmé, BeeBot® l'abeille programmable, Jack la souris qui code et Cubetto®, le robot éducatif en bois.  Avec la Tablette, nous avons une diversité d'applications afin que les élèves découvrent les notions du code informatique tout en s'amusant. Exemple : Scratch® JR / codeKarts® /...</p>
-				</div>
-			</div>	
-			<div class="card">
-				<img class="card-img-top" src="css/images/ecoles/ecole2.jpg" alt="image école">
-				<div class="card-body">
-					<h5 class="card-title text-center">Écoles primaire</h5>
-					<p class="card-text text-justify">A travers différents ateliers utilisant une technologie adaptée, EuraTech'Kids fait découvrir à vos élèves les notions du code informatique : atelier robotique, construction et programmation de robot, création de petits jeux vidéo avec Scratch®, découverte de la 3D avec impression 3D et sensibilisation à l'électronique.</p> 
-				</div>
+
+<div class="container">
+	<h5 class="text-center display-4 pb-5 pt-5">Programme écoles</h5>
+</div>
+<div class="container">
+	<h5 class=" text-justify pb-5">De nos jours, les enfants sont confrontés dès leur plus jeune âge à des technologies complexes qu'ils utilisent de façon plus ou moins instinctive. Alors venez faire découvrir à votre classe les notions de bases de la programmation informatique, afin qu'ils comprennent mieux le fonctionnement des outils à leur disposition au quotidien et leur donner des outils pour mieux les manipuler.</h5>
+</div>
+<div class="container">
+	<div class="card-deck">
+	    <div class="card" id="schoolcard">
+			<img class="card-img-top" src="css/images/ecoles/ecole1.jpg" alt="image école">
+			<div class="card-body">
+				<h5 class="card-title text-center">Écoles maternelle</h5>
+				<p class="card-text text-justify ">Les technologies utilisées et adaptées pour les plus jeunes permettent aux élèves de découvrir avec et/ou sans tablette les notions du code informatique. Sans la tablette nous utilisons des petits robots éducatifs : Thymio® le robot déjà programmé, BeeBot® l'abeille programmable, Jack la souris qui code et Cubetto®, le robot éducatif en bois.  Avec la Tablette, nous avons une diversité d'applications afin que les élèves découvrent les notions du code informatique tout en s'amusant. Exemple : Scratch® JR / codeKarts® /...</p>
 			</div>
-		</div>	
+		</div>
+		<div class="card" id="schoolcard">
+			<img class="card-img-top" src="css/images/ecoles/ecole2.jpg" alt="image école">
+			<div class="card-body">
+				<h5 class="card-title text-center">Écoles primaire</h5>
+				<p class="card-text text-justify ">A travers différents ateliers utilisant une technologie adaptée, EuraTech'Kids fait découvrir à vos élèves les notions du code informatique : atelier robotique, construction et programmation de robot, création de petits jeux vidéo avec Scratch®, découverte de la 3D avec impression 3D et sensibilisation à l'électronique.</p>
+			</div>
+		</div>		
+
 	</div>
 	<div class="container">
 	    <p class="pt-3 text-center"><span>Durée :</span> 1 journée avec possibilité de déjeuner sur place (prévoir un pique-nique). 1/2 journée matin ou après-midi.</p> 
 	</div>
-	<div class="container">
+	<div class="container text-center">
 	    	<div class="mx-auto pb-4">
-	        	<button class="btn btn-info mt-5" data-toggle="collapse" data-target="#formschool">Demander un devis</button>
-                 <div id="formschool" class="collapse container-fluid">
+	        	<button class="btn btn-info mt-5 mb-5" data-toggle="collapse" data-target="#formschool">Demander un devis</button>
+                 <div id="formschool" class="collapse container">
                  {{ form_start(form) }}
 
-                    {{ form_row(form.nomref, {'label': 'Nom du référant','attr' : {'placeholder': 'Votre nom'}}) }}
-                    {{ form_row(form.prenomref, {'label': 'Prénom du référant','attr' : {'placeholder': 'Votre prénom'}}) }}
-                    {{ form_row(form.email, {'label': 'Email','attr' : {'placeholder': 'email@email.com'}}) }}
-                    {{ form_row(form.schoolname, {'label': 'Nom de l\'établissent','attr' : {'placeholder': 'Nom de l\'établissement'}}) }}
-                    {{ form_row(form.ville, {'label': 'Ville','attr' : {'placeholder': 'Ville de l\'établissement'}}) }}
-                    {{ form_row(form.nbrestudent, {'label': 'Nombre d\'élèves','attr' : {'placeholder': 'Nombre d\'élèves'}}) }}
-                    {{ form_row(form.message, {'label': 'Message','attr' : {'placeholder': 'Votre message'}}) }}
-                    
-                    <button type="submit" class="btn btn-info">Envoyer</button>
+                    {{ form_row(form.nomref, {'label': false,'attr' : {'placeholder': 'Votre nom', 'class' : 'school'}}) }}
+                    {{ form_row(form.prenomref, {'label': false,'attr' : {'placeholder': 'Votre prénom', 'class' : 'school'}}) }}
+                    {{ form_row(form.email, {'label': false,'attr' : {'placeholder': 'Votre email', 'class' : 'school'}}) }}
+                    {{ form_row(form.schoolname, {'label': false,'attr' : {'placeholder': 'Nom de l\'établissement', 'class' : 'school'}}) }}
+                    {{ form_row(form.ville, {'label': false,'attr' : {'placeholder': 'Ville de l\'établissement', 'class' : 'school'}}) }}
+                    {{ form_row(form.nbrestudent, {'label': false,'attr' : {'placeholder': 'Nombre d\'élèves', 'class' : 'school'}}) }}
+					{{ form_row(form.classe, {'label': false,'attr' : {'placeholder': 'Maternelle, CP, CE1...', 'class' : 'school'}}) }}
+					{{ form_row(form.message, {'label': false,'attr' : {'placeholder': 'Votre message', 'class' : 'school'}}) }}
+					<div class="container text-center">
+                    <button type="submit" class="btn btn-info mt-3 mb-5">Envoyer</button>
+					</div>
                     {{ form_end(form) }}
                  </div>
 	   		</div> 
-	</div>
 
+	</div>
+</div>
 
 
 {% endblock %}

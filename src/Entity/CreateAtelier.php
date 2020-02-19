@@ -13,7 +13,7 @@ class CreateAtelier
     /**
      * @var string
      * 
-     * @ORM\Column(name="image", type="string", nullable=false)
+     * @ORM\Column(name="image", type="string", nullable=true)
      */
     private $image;
 
@@ -30,12 +30,12 @@ class CreateAtelier
     private $titre;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text", length=255)
      */
     private $description;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
 
     private $date;
@@ -45,15 +45,12 @@ class CreateAtelier
         return $this->id;
     }
 
-    public function getImage()
+    public function getImage(): ?string
     {
         return $this->image;
     }
 
-    /**
-     * @param string $image
-     */
-    public function setImage($image)
+    public function setImage(?string $image): self
     {
         $this->image = $image;
 

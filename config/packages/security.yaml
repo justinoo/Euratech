@@ -4,10 +4,17 @@ security:
             algorithm: auto
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        app_user_provider:
+        # app_user_provider:
+        in_database:
             entity:
                 class: App\Entity\User
-                property: email
+                property: username
+        # in_memory:
+        #     memory:
+        #         users:
+        #             jojo: {password: '$argon2id$v=19$m=65536,t=4,p=1$NUViWUE2QktxcVZVN0xLeA$VzauOPG/dgS8Bizw0MSRKM8bOLix2CaDyOc+csnp8Jo', roles: ['ROLE_ADMIN']}
+        #             alex: {password: '$argon2id$v=19$m=65536,t=4,p=1$WnVGWmpYNlNaTC5tUXZmWA$jPSAxbPGgl3kJkXyoDIS9CerDf/wCib1/gBYSlSFN1w', roles: ['ROLE_USER']}
+        
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -15,7 +22,7 @@ security:
         main:
             anonymous: lazy
 
-            provider: app_user_provider
+            # provider: app_user_provider
 
             form_login:
                 login_path: security_login
@@ -34,5 +41,8 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/profile, roles: ROLE_USER }
+
+    role_hierarchy:
+        ROLE_ADMIN: [ROLE_USER]
