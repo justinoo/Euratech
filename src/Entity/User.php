@@ -6,6 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -50,6 +52,29 @@ class User implements UserInterface
     /**
      * @Assert\EqualTo(propertyPath="confirm_password")
      */
+
+    /**
+     * @ORM\Column(type="json")
+     */
+     private $roles;
+
+        public function getRoles(): array
+        {
+            if(empty($this->roles)){
+                $this->roles[] = 'ROLE_USER';
+            }
+            return $this->roles;
+        }
+
+        public function setRoles($roles)
+        {
+            if (!is_array($roles)) {
+                $this->roles[] = $roles;
+                return;
+            }
+
+            $this->roles = $roles;
+        }
 
     public $confirm_password;
 
@@ -99,6 +124,7 @@ class User implements UserInterface
      */
     public function eraseCredentials()
     {    
+        return null;
     }
 
     /**
@@ -106,9 +132,12 @@ class User implements UserInterface
      */
     public function getSalt()
     {
+        return null;
     }
 
-    public function getRoles() {
-        return ['ROLE_USER'];
+    public function __toString()
+    {
+        return $this->getEmail();
     }
+
 }
