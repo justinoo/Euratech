@@ -31,22 +31,23 @@
 	<div class="container">
 	    <p class="pt-3 text-center"><span>Durée :</span> 1 journée avec possibilité de déjeuner sur place (prévoir un pique-nique). 1/2 journée matin ou après-midi.</p> 
 	</div>
-	<div class="container">
+	<div class="container text-center">
 	    	<div class="mx-auto pb-4">
-	        	<button class="btn btn-info mt-5" data-toggle="collapse" data-target="#formschool">Demander un devis</button>
+	        	<button class="btn btn-info mt-5 mb-5" data-toggle="collapse" data-target="#formschool">Demander un devis</button>
                  <div id="formschool" class="collapse container-fluid">
                  {{ form_start(form) }}
 
-                    {{ form_row(form.nomref, {'label': 'Nom du référant','attr' : {'placeholder': 'Votre nom'}}) }}
-                    {{ form_row(form.prenomref, {'label': 'Prénom du référant','attr' : {'placeholder': 'Votre prénom'}}) }}
-                    {{ form_row(form.email, {'label': 'Email','attr' : {'placeholder': 'email@email.com'}}) }}
-                    {{ form_row(form.schoolname, {'label': 'Nom de l\'établissement','attr' : {'placeholder': 'Nom de l\'établissement'}}) }}
-                    {{ form_row(form.ville, {'label': 'Ville','attr' : {'placeholder': 'Ville de l\'établissement'}}) }}
-                    {{ form_row(form.nbrestudent, {'label': 'Nombre d\'élèves','attr' : {'placeholder': 'Nombre d\'élèves'}}) }}
-					{{ form_row(form.classe, {'label': 'Classe','attr' : {'placeholder': 'Maternelle, CP, CE1...'}}) }}
-					{{ form_row(form.message, {'label': 'Message','attr' : {'placeholder': 'Votre message'}}) }}
-
-                    <button type="submit" class="btn btn-info">Envoyer</button>
+                    {{ form_row(form.nomref, {'label': false,'attr' : {'placeholder': 'Votre nom', 'class' : 'school'}}) }}
+                    {{ form_row(form.prenomref, {'label': false,'attr' : {'placeholder': 'Votre prénom', 'class' : 'school'}}) }}
+                    {{ form_row(form.email, {'label': false,'attr' : {'placeholder': 'Votre email', 'class' : 'school'}}) }}
+                    {{ form_row(form.schoolname, {'label': false,'attr' : {'placeholder': 'Nom de l\'établissement', 'class' : 'school'}}) }}
+                    {{ form_row(form.ville, {'label': false,'attr' : {'placeholder': 'Ville de l\'établissement', 'class' : 'school'}}) }}
+                    {{ form_row(form.nbrestudent, {'label': false,'attr' : {'placeholder': 'Nombre d\'élèves', 'class' : 'school'}}) }}
+					{{ form_row(form.classe, {'label': false,'attr' : {'placeholder': 'Maternelle, CP, CE1...', 'class' : 'school'}}) }}
+					{{ form_row(form.message, {'label': false,'attr' : {'placeholder': 'Votre message', 'class' : 'school'}}) }}
+					<div class="container text-center">
+                    <button type="submit" class="btn btn-info mt-3 mb-5">Envoyer</button>
+					</div>
                     {{ form_end(form) }}
                  </div>
 	   		</div> 
