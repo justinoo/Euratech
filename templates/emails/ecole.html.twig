@@ -1,13 +1,14 @@
+<h2>Demande d'informations de la part de {{ school.prenomref }} {{ school.nomref }}</h2>
+
 
     <ul>
-        <li>Nom du référant : {{ school.nomref }}</li>
-        <li>Prénom du référant : {{ school.prenomref}}</li>
-        <li>Nom de l'école : {{ school.schoolname }}</li>
-        <li>Ville : {{ school.ville }}</li>
-        <li>Classe : {{ school.classe }}</li>
+        <li>Nom de l'établissement : {{ school.schoolname }}</li>
+        <li>Ville de l'établissement : {{ school.ville }}</li>
+        <li>Niveau de la classe : {{ school.classe }}</li>
         <li>Nombre d'élèves : {{ school.nbrestudent }}</li>
-        <li>Message : {{ school.message }}</li>
     </ul>
+
+<p>Message : {{ school.message }}</p>
 
 
 
