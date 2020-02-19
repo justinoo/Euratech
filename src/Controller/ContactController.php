@@ -43,9 +43,7 @@ class ContactController extends AbstractController
 
         $form2->handleRequest($request);
 
-        
-
-      
+    
 
         if('POST' === $request->getMethod()) {
 
@@ -88,12 +86,14 @@ class ContactController extends AbstractController
                    
                 } 
             }
-            return $this->render('homepage.html.twig', [
-                'controller_name' => 'ContactController',
-                'form' => $form->createView(),
-                'form2' => $form2->createView()
-            ]);
+            
         }
+
+        return $this->render('homepage.html.twig', [
+            'controller_name' => 'ContactController',
+            'form' => $form->createView(),
+            'form2' => $form2->createView()
+        ]);
     }
 }
 
