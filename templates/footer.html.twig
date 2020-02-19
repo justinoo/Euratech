@@ -17,19 +17,37 @@
                         <li>59000 Lille</li>
                     </ul>
                 </div>
+                <div>
                 <div class="col-lg-3  col-md-3 col-sm-4 col-xs-6">
+                    {% if form2 is defined %}
+                    {{ form_start(form2) }}
                     <h3> Newsletter </h3>
-                    
-                    <ul>
-                        <li>
-                            <div class="input-append newsletter-box text-center">
-                                
-                                <input type="text" class="full text-center" placeholder="Email ">
-                                
-                                <button class="btn  bg-gray" type="submit">S'inscrire à la Newsletter</button>
+                            <div class="my-custom-class-for-errors">
+                                {{ form_errors(form2.email) }}
                             </div>
-                        </li>
-                    </ul>
+
+                            <div class="row">
+                                <div class="col">
+                                    {{ form_row(form2.email) }}
+                                </div>
+                                <div>
+                                <ul>
+                                    <li>
+                                        <div class="input-append newsletter-box text-center">
+                                        
+                                            <button class="btn  bg-gray" type="submit">S'inscrire à la Newsletter</button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                                
+                            </div>
+                        {{ form_end(form2) }}
+                        {% endif %}
+                    </div>
+                        
+
+                   
                     <ul class="social">
                         <li> <a href="https://www.facebook.com/euratechkids" target="blank"> <i class="fab fa-facebook"></i></a> </li>
                         <li> <a href="https://twitter.com/euratechkids" target="blank"> <i class="fab fa-twitter">   </i> </a> </li>
