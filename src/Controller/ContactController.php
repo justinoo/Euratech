@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Contact;
+use App\Entity\NewsLetters;
 use App\Form\ContactType;
+use App\Form\NewsLettersType;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Mailer\MailerInterface;
@@ -25,33 +27,73 @@ class ContactController extends AbstractController
     /**
      * @Route("/", name="contact")
      */
-    public function create(Request $request, EntityManagerInterface $manager, MailerInterface $mailer){
-         $contact = new Contact();
+    public function create(Request $request, EntityManagerInterface $manager, MailerInterface $mailer)
+    {
+        $contact = new Contact();
 
         $form = $this->createForm(ContactType::class, $contact);
 
-         $form->handleRequest($request);
+        $form->handleRequest($request);
 
-         if ($form->isSubmitted() && $form->isValid()) {
+        
+    
+        $NewsLetters = new NewsLetters();
 
-            $email = (new TemplatedEmail())
-                ->from('euratechkidsymfony@gmail.com')
-                ->to('euratechkidsymfony@gmail.com')
-                ->subject('Demande information')
-                ->htmlTemplate('emails/contact.html.twig')
-                ->context([
-                    'contact' => $contact
-                ])
-            ;
-            $mailer->send($email);
+        $form2 = $this->createForm(NewsLettersType::class, $NewsLetters);
 
-            $manager->persist($contact);
-            $manager->flush();
-         }
+        $form2->handleRequest($request);
 
-        return $this->render('homepage.html.twig', [
-            'controller_name' => 'ContactController',
-            'form' => $form->createView()
-        ]);
+        
+
+      
+
+        if('POST' === $request->getMethod()) {
+
+            if ($request->request->has('contact')) {
+                if ($form->isSubmitted() && $form->isValid()) {
+                    $email = (new TemplatedEmail())
+                        ->from('euratechkidsymfony@gmail.com')
+                        ->to('euratechkidsymfony@gmail.com')
+                        ->subject('Demande information')
+                        ->htmlTemplate('emails/contact.html.twig')
+                        ->context([
+                            'contact' => $contact
+                        ])
+                    ;
+                    $mailer->send($email);
+        
+                    $manager->persist($contact);
+                    $manager->flush();
+                }
+                 
+            }
+        
+            if ($request->request->has('news_letters')) {
+
+                if ($form2->isSubmitted() && $form2->isValid()) {
+                //     $email = (new TemplatedEmail())
+                //        ->from('euratechkidsymfony@gmail.com')
+                //        ->to('euratechkidsymfony@gmail.com')
+                //        ->subject('Demande information')
+                //        ->htmlTemplate('emails/contact.html.twig')
+                //        ->context([
+                //            'NewsLetters' => $NewsLetters
+                //        ])
+                //    ;
+                //     $mailer->send($email);
+        
+                    $manager->persist($NewsLetters);
+                    $manager->flush();
+
+                   
+                } 
+            }
+            return $this->render('homepage.html.twig', [
+                'controller_name' => 'ContactController',
+                'form' => $form->createView(),
+                'form2' => $form2->createView()
+            ]);
+        }
     }
 }
+
