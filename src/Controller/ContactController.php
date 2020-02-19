@@ -6,6 +6,8 @@ use App\Entity\Contact;
 use App\Form\ContactType;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -23,7 +25,7 @@ class ContactController extends AbstractController
     /**
      * @Route("/", name="contact")
      */
-    public function create(Request $request, EntityManagerInterface $manager){
+    public function create(Request $request, EntityManagerInterface $manager, MailerInterface $mailer){
          $contact = new Contact();
 
         $form = $this->createForm(ContactType::class, $contact);
@@ -32,7 +34,16 @@ class ContactController extends AbstractController
 
          if ($form->isSubmitted() && $form->isValid()) {
 
-            dump($contact);
+            $email = (new TemplatedEmail())
+                ->from('euratechkidsymfony@gmail.com')
+                ->to('euratechkidsymfony@gmail.com')
+                ->subject('Demande information')
+                ->htmlTemplate('emails/contact.html.twig')
+                ->context([
+                    'contact' => $contact
+                ])
+            ;
+            $mailer->send($email);
 
             $manager->persist($contact);
             $manager->flush();
