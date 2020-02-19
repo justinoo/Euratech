@@ -7,7 +7,6 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-
 class AppFixtures extends Fixture
 {
     private $passwordEncoder;
@@ -30,8 +29,8 @@ class AppFixtures extends Fixture
 
             $user = new User();
             $user->setUsername($username);
-            $user->setRoles($roles);
             $user->setEmail($email);
+            $user->setRoles($roles);
             $user->setPassword(
                 $this->passwordEncoder->encodePassword($user, 'test')
             );
