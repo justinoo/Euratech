@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\School;
 use Symfony\Component\Form\AbstractType;
+
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -19,6 +20,7 @@ class SchoolType extends AbstractType
             ->add('ville')
             ->add('nbrestudent')
             ->add('message')
+            ->add('classe')
         ;
     }
 

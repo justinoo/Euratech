@@ -51,6 +51,11 @@ class School
      */
     private $message;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $classe;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -136,6 +141,18 @@ class School
     public function setMessage(string $message): self
     {
         $this->message = $message;
+
+        return $this;
+    }
+
+    public function getClasse(): ?string
+    {
+        return $this->classe;
+    }
+
+    public function setClasse(string $classe): self
+    {
+        $this->classe = $classe;
 
         return $this;
     }

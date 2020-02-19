@@ -207,7 +207,7 @@ img {
 	transform: translateX(-50%);
   bottom: 0;
   height: 2px;
-  background: #977938;
+  background: #17a2b8;
   content: '';
   width: 0;
   position: absolute;
@@ -230,11 +230,11 @@ img {
 }
 
 .box figure:hover h5 {
-  color: #977938;
+  color: #17a2b8;
 }
 
 .box figure:hover img {
-	box-shadow: 0px 0px 6px #0000004f, -10px -10px 1px #977938;
+	box-shadow: 0px 0px 6px #0000004f, -10px -10px 1px #17a2b8;
 }
 
 .box2 figure:hover figcaption {
@@ -519,3 +519,41 @@ footer a #lille  {
 }
 
 /* footer fin */
+
+#formschool {
+  width: 500px;
+}
+
+
+/* INSCRIPTION */
+
+.register {
+  border: none;
+  border-bottom: 2px solid #17a2b8;
+}
+.register:focus {
+  background-color: #17a2b8;
+  color: white;
+}
+
+/* LOGIN */
+
+#login {
+  border: none;
+  border-bottom: 2px solid #17a2b8;
+}
+#login:focus {
+  background-color: #17a2b8;
+  color: white;
+}
+
+/* SCHOOL FORM */
+
+.school{
+  border: none;
+  border-bottom: 2px solid #17a2b8;
+}
+.school:focus {
+  background-color: #17a2b8;
+  color: white;
+}
