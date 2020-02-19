@@ -520,10 +520,6 @@ footer a #lille  {
 
 /* footer fin */
 
-#formschool {
-  width: 500px;
-}
-
 
 /* INSCRIPTION */
 
@@ -556,4 +552,49 @@ footer a #lille  {
 .school:focus {
   background-color: #17a2b8;
   color: white;
+}
+#formschool {
+  width: 450px;
+}
+
+/* CONTACT FORM */
+
+.contact{
+  border: none;
+  border-bottom: 2px solid #17a2b8;
+  width: 100%;
+}
+.contact:focus {
+  background-color: #17a2b8;
+  color: white;
+}
+
+#contactform {
+  margin-top: 30px;
+  width: 500px;
+}
+
+/* MAP GOOGLE */
+#map {
+  margin-bottom: 30px;
+}
+
+#schoolcard {
+  background-color: #17a2b8;
+  color: white;
+}
+
+/* BIENVENUE APP.USER */
+#bienvenue {
+  border: 1px solid black;
+  padding: 0px;
+  border-radius: 10px;
+}
+#navbar-brand {
+  max-width: 150px;
+}
+
+#content {
+  padding-top: 25px;
+  background-color: #17a2b8;
 }
