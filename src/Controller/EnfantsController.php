@@ -17,25 +17,23 @@ class EnfantsController extends AbstractController
 {
 
     /**
-     * @Route("/inscription/enfants/{titre}", name="formulaire_enfants")
+     * @Route("/inscription/enfants/{titre}/{id}", name="formulaire_enfants")
      */
 
 
-    public function form(Request $request, $titre)
+    public function form(Request $request,$titre, $id)
     {
-
+        dump($id);
         $product = new Enfants();
+        $product->setIdatelier($id);
         $form = $this->createForm(EnfantsType::class, $product);
         $form->handleRequest($request);
-        dump($product);
-        $nomAtelier = $this->getDoctrine()->getRepository(CreateAtelier::class)->findOneBy(['titre' => $titre]);
-
 
 
 
         if($form->isSubmitted() && $form->isValid())
         {
-            dump($nomAtelier);
+            dump($request);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($product);
             $entityManager->flush();
