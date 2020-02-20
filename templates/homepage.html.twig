@@ -43,7 +43,24 @@
 
       <!-- CARDS DEBUT -->
         		<!-- TITRE ---->
-		<div class="container-fluid text-center">
+        {% if app.user %}
+		<div class="container-fluid text-center text-white" id="content">
+                <div class="row ">
+                    <div class="col-md-8 mx-auto">
+                        <h1>Content de vous revoir {{ app.user.username }} !</h1>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="css/images/robot.png" id="navbar-brand"/>
+                    </div>
+                </div>
+                <h3>N'oubliez pas votre prochain atelier :</h3>
+            
+        </div>
+
+        <div class="container-fluid text-center">
+        
+            {% endif %}
+            
             <h1 id="typing">Initiez vos enfants au monde du numérique</h1>
 			<h4 class="pt-3 pb-3">EuraTechnologies renforce son programme d’accompagnement des plus jeunes avec <br/> 
             EURATECH’KIDS pour donner aux enfants le goût de la programmation et les projeter dans le futur.</h4>
@@ -104,7 +121,7 @@
 
       <!-- DEBUT PROGRAMME -->
 
-      <div class="container-fluid text-center mt-2 mb-5 pt-5 pb-5" style="background-color: #E3E3E3;">
+      <div class="container-fluid text-center mt-2 mb-5 pt-5 pb-5" style="background-color: #17a2b8; color:white;">
 		<h2>Notre pédagogie</h2>
             <p class="pt-4 container mx-auto"> Les ateliers coding, robotique et créatif sont l’occasion de faire découvrir aux enfants le champ 
                 des possibles du numérique à travers des idées de projets qu’ils souhaitent réaliser en faisant appel
@@ -313,6 +330,7 @@
 
 
 <!-- Formulaire de contact -->
+<<<<<<< HEAD
 
 
     <div class="container pt-5 pb-5">
@@ -369,6 +387,34 @@
             </div>
         </div>
     </div>
+=======
+
+
+
+<div class="container pt-5 pb-5" id="contactform">
+    <h3 class="text-center"><i class="fa fa-envelope"></i> Contactez nous</h3>
+    {{ form_start(form) }}     
+        {{ form_row(form.prenom, {'label': false,'attr' : {'placeholder': 'Nom, prénom', 'class' : 'contact'}}) }}
+        {{ form_row(form.commune, {'label': false,'attr' : {'placeholder': 'Votre commune', 'class' : 'contact'}}) }}
+        {{ form_row(form.email, {'label': false,'attr' : {'placeholder': 'email@email.com', 'class' : 'contact'}}) }}
+        {{ form_row(form.message, {'label': false,'attr' : {'placeholder':'message', 'class' : 'contact' }}) }}
+        <div class="text-center">
+            <input type="submit" value="Envoyer" class="btn btn-info rounded-2 py-2 mt-3">
+        </div>
+        {{ form_end(form) }}
+</div>
+        <div id="map" class="text-center">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2530.681106499827!2d3.0178653159010453!3d50.63304058207214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c2d55c764ab439%3A0x2e9bfd5c48d283b!2sEuraTechnologies!5e0!3m2!1sfr!2sfr!4v1582117310148!5m2!1sfr!2sfr" width="600" height="350" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+
+
+        </div>
+</div>
+                
+
+    
+
+        
+>>>>>>> 97febb4284d2dd26c192e881a7f270871e5477b2
 
 <!-- Fin formulaire de contact -->
 {% endblock %}

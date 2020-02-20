@@ -10,6 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
@@ -28,6 +29,7 @@ class SecurityController extends AbstractController
             
             $hash = $encoder->encodePassword($user, $user->getPassword());
             $user->setPassword($hash);
+            $user->setRoles(['ROLES_USER']);
 
             $manager->persist($user);
             $manager->flush();
@@ -48,13 +50,22 @@ class SecurityController extends AbstractController
         return $this->render('security/login.html.twig');
     }
 
+    public function login(AuthenticationUtils $authenticationUtils)
+    {
+        $error = $authenticationUtils->getLastAuthenticationError();
+        $lastUsername = $authenticationUtils->getLastUsername();
+
+        return $this->render('security/login.html.twig',[
+            'error' => $error,
+            'last_username' => $lastUsername,
+        ]);
+    }
+
     /**
      * @Route("/deconnexion", name="security_logout")
      */
-    public function logout() 
-    {
+    public function logout() {}
 
-    }
 }
 
 
