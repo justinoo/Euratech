@@ -313,7 +313,7 @@
 
 
 <!-- Formulaire de contact -->
-{{ form_start(form) }}
+
 
     <div class="container pt-5 pb-5">
         <div class="row">
@@ -331,14 +331,14 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
                                     </div>
-                                    {{ form_row(form.prenom, {'label': 'prenom','attr' : {'placeholder': 'Votre prénom'}}) }}
+
                                 </div>
                                 
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fas fa-home text-info"></i></div>
                                     </div>
-                                    {{ form_row(form.commune, {'label': 'Commune','attr' : {'placeholder': 'Votre commune'}}) }}
+
                                 </div>
                             </div>
                             <div class="form-group">
@@ -346,7 +346,6 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
                                     </div>
-                                    {{ form_row(form.email, {'label': 'Email','attr' : {'placeholder': 'email@email.com'}}) }}
                                 </div>
                             </div>
 
@@ -356,7 +355,6 @@
                                         <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
                                     </div>
                                       
-                    {{ form_row(form.message, {'label': '' ,'attr' : {'placeholder':'message' }}) }}
                                 </div>
                             </div>
                             <div class="text-center">
@@ -371,7 +369,6 @@
             </div>
         </div>
     </div>
-    {{ form_end(form) }}
 
 <!-- Fin formulaire de contact -->
 {% endblock %}

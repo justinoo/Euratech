@@ -79,6 +79,14 @@ class Reservation
      */
     private $accompagnants;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\CreateAtelier")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $nomAtelier;
+
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -227,4 +235,18 @@ class Reservation
 
         return $this;
     }
+
+    public function getNomAtelier(): ?createAtelier
+    {
+        return $this->nomAtelier;
+    }
+
+    public function setNomAtelier(?createAtelier $nomAtelier): self
+    {
+        $this->nomAtelier = $nomAtelier;
+
+        return $this;
+    }
+
+
 }

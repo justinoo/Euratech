@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,13 +23,9 @@ class CreateAtelier
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     *
      */
     private $id;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $titre;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -39,6 +37,22 @@ class CreateAtelier
      */
 
     private $date;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $titre;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Enfants", inversedBy="createAteliers")
+     */
+    private $enfants;
+
+    public function __construct()
+    {
+        $this->enfants = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -60,17 +74,6 @@ class CreateAtelier
         return $this;
     }
 
-    public function getTitre(): ?string
-    {
-        return $this->titre;
-    }
-
-    public function setTitre(string $titre): self
-    {
-        $this->titre = $titre;
-
-        return $this;
-    }
 
     public function getDescription(): ?string
     {
@@ -95,6 +98,46 @@ class CreateAtelier
 
         return $this;
     }
+
+    public function getTitre(): ?string
+    {
+        return $this->titre;
+    }
+
+    public function setTitre(string $titre): self
+    {
+        $this->titre = $titre;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|enfants[]
+     */
+    public function getEnfants(): Collection
+    {
+        return $this->enfants;
+    }
+
+    public function addEnfant(enfants $enfant): self
+    {
+        if (!$this->enfants->contains($enfant)) {
+            $this->enfants[] = $enfant;
+        }
+
+        return $this;
+    }
+
+    public function removeEnfant(enfants $enfant): self
+    {
+        if ($this->enfants->contains($enfant)) {
+            $this->enfants->removeElement($enfant);
+        }
+
+        return $this;
+    }
+
+
 
 
 }

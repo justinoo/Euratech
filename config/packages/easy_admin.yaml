@@ -5,7 +5,7 @@ easy_admin:
         NewsLetters: 
             class: App\Entity\NewsLetters 
         Reservations:
-            class: App\Entity\ReservationAtelier   
+            class: App\Entity\Reservation
         CreationAtelier:
             class: App\Entity\CreateAtelier
             form:

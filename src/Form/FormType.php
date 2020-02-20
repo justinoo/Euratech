@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Enfants;
 use App\Entity\Reservation;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -16,8 +17,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class FormType extends AbstractType
 {
-
-    public $enfants;
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
@@ -42,8 +41,10 @@ class FormType extends AbstractType
             ])
             ->add('ville', ChoiceType::class,[
                 'choices'=>[
-                    "Lille"  => 'Lille',
-                    "Roubaix" => "Roubaix"
+                    "Hellemmes"  => 'Hellemmes',
+                    "Lille" => "Lille",
+                    "Lomme" => "Lomme",
+                    "Autre" => "Autres"
                 ],
                 "label" => "Ville :"
 
@@ -71,12 +72,26 @@ class FormType extends AbstractType
                     "1" => 1
 
                 ],
-
-
             'label' => "Nombre d'enfants à  inscrire : "
-        ])
-        
-            
+            ])
+            ->add('prenom', TextType::class, [
+                'label' => " Prénom :  "
+            ])
+            ->add('prenom', TextType::class, [
+                'label' => " Prénom :  "
+            ])
+            ->add('prenom', TextType::class, [
+                'label' => " Prénom :  "
+            ])
+            ->add('prenom', TextType::class, [
+                'label' => " Prénom :  "
+            ])
+            ->add('prenom', TextType::class, [
+                'label' => " Prénom :  "
+            ])
+
+
+
             ->getForm();
     }
 

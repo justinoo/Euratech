@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    {{ form_start(formkid, {'attr': {'novalidate': 'novalidate'}} ) }}
+    {% for  kids in kids %}
+    {{ form_label(formkid, {'label' :  'Prénom de l\'enfant :' })}}
+    {% endfor %}
+
+
+    <input type="submit" >
+
+
+    {{ form_end(formkid) }}
+
+
+{% endblock %}
