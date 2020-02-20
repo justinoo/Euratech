@@ -13,10 +13,10 @@ class FormController extends AbstractController
 {
 
     /**
-     * @Route("/inscription/{titre}", name="formulaire_inscription")
+     * @Route("/inscription/{titre}/{id}", name="formulaire_inscription")
      */
 
-    public function form(Request $request, $titre)
+    public function form(Request $request, $titre, $id)
     {
         $product = new Reservation();
         $form = $this->createForm(FormType::class, $product);
@@ -31,7 +31,8 @@ class FormController extends AbstractController
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($product);
                 $entityManager->flush();
-                return $this->redirectToRoute('formulaire_enfants', ['titre' => $titre]);
+                return $this->redirectToRoute('formulaire_enfants', ['titre' => $titre,
+                    'id' => $id]);
         }
         return $this->render('Form/form.html.twig', [
             'form' => $form->createView(),
